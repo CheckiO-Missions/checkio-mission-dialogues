@@ -1,0 +1,43 @@
+<p>
+Modern world is full of means of communication - social networks, messengers, phone calls, SMS etc.
+But sometimes every communication channel show own problem and you think at moments like that: "I should create my own messenger - without any promblems like this one".<br>
+In this mission you have such opportunity.<br>
+Your task is to create a NewMessenger class which could help two person (Person1 and Person2) to make a conversation. This class should have method <strong>connect_person()</strong> for adding person in the dialogue and <strong>show_dialogue()</strong> to print out the dialogue as a multiline string. Every single line shold looks like:<br>
+Person1 (or Person2) said: text of the message<br>
+Interlocutors should have a method <strong>send()</strong> for sending a messages to the dialogue.<br>
+In this mission you could use the <a href='https://en.wikipedia.org/wiki/Mediator_pattern'>Mediator</a> design pattern.
+</p>
+
+<p>
+<strong>Example</strong>:
+<pre class="brush: python">
+messenger = NewMessenger()
+karl = Person1(messenger)
+peter = Person2(messenger)
+messenger.connect_person(karl)
+messenger.connect_person(peter)
+karl.send("Hi! What's new?")
+peter.send('Hello. Could we speak later about it?')
+messenger.show_dialogue() == '''Person1 said: Hi! What’s new?
+Person2 said: Hello. Could we speak later about it?'''
+</pre>
+</p>
+<br>
+
+<p>
+    <strong>Input: </strong>Interlocutors and the text of the messages.
+</p>
+
+<p>
+    <strong>Output: </strong>dialogue (multiline string).
+</p>
+
+<p class="for_info_only">
+    <strong>How it is used: </strong>
+    For creating the connection and sending/receiving the information.
+</p>
+
+<p>
+    <strong>Precondition:</strong>
+    2 interlocutors.
+</p>
