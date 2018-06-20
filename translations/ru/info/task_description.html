@@ -1,25 +1,35 @@
 <p>
 Современный мир наполнен средствами связи - социальные сети, мессенджеры, телефонные звонки и СМС. И всё же, при огромном богатстве выбора, порой в любом из средств обнаруживается изъян и в такие моменты появляется мысль: "Пора делать собственное средство связи. Уж оно-то точно будет лишено всех недостатков".<br>
 В этой миссии вам представится такая возможность.<br>
-Ваша задача - реализовать способ связи между двумя людьми (Person1 и Person2) с последующим выводом их переписки. Для этого вам необходимо создать класс для каждого из двоих собеседников и класс NewMessenger для средства связи. NewMessenger должен обладать методом <strong>connect_person()</strong> для подключения человека к мессенджеру, а также методом <strong>show_dialogue()</strong>, который возвращает всю переписку как многострочную строку. Каждая строка должна быть в виде:<br>
-Person1 (или Person2) said: текст сообщения<br>
-Собеседники должны иметь метод <strong>send()</strong>, позволяющий отправлять сообщения (и включать их в общий диалог).
-<br>
+Ваша задача - реализовать способ связи между человеком Human(name) и роботом Robot(serial_number) с последующим выводом их переписки. Для этого вам необходимо создать класс для каждого из двоих собеседников и метод <strong>send()</strong> для отправки сообщений в чат, а также класс Chat как средство связи. Chat должен обладать следующими методами:<br>
+<strong>connect_human()</strong> - подключает к чату человека.<br>
+<strong>connect_robot()</strong> - подключает к чату робота.<br>
+<strong>show_human_dialogue()</strong> - отображает диалог так, как его видит человек - обычным текстом.<br>
+<strong>show_robot_dialogue()</strong> - отображает диалог так, как его видит робот - в виде набора нулей и единиц. Для простоты будем считать, что любая гласная буква ("aeiouAEIOU") в текстовом сообщении должна быть заменена на "0", а все остальные символы (согласные буквы и специальные знаки, как ",", "!" и т.п.) на "1".<br>
+Диалог для человека должен отображаться как многострочная строка вида:<br>
+(human name) said: текст сообщения<br>
+(robot serial number) said: текст сообщения<br>
+Для робота:<br>
+(human name) said: 11100100011<br>
+(robot serial number) said: 100011100101<br>
+
 В этой миссии вам может помочь такой шаблон проектирования, как <a href='https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%81%D1%80%D0%B5%D0%B4%D0%BD%D0%B8%D0%BA_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)'>Mediator</a>.
 </p>
 
 <p>
 <strong>Примеры</strong>:
 <pre class="brush: python">
-messenger = NewMessenger()
-karl = Person1(messenger)
-peter = Person2(messenger)
-messenger.connect_person(karl)
-messenger.connect_person(peter)
-karl.send('Hi! What’s new?')
-peter.send('Hello. Could we speak later about it?')
-messenger.show_dialogue() == '''Person1 said: Hi! What’s new?
-Person2 said: Hello. Could we speak later about it?'''
+chat = Chat()
+karl = Human("Karl")
+bot = Robot("R2D2")
+chat.connect_human(karl)
+chat.connect_robot(bot)
+karl.send("Hi! What's new?")
+bot.send("Hello. Could we speak later about it?")
+chat.show_human_dialogue() == """Karl said: Hi! What’s new?
+R2D2 said: Hello, human. Could we speak later about it?"""
+chat.show_robot_dialogue() == """Karl said: 101111011111011
+R2D2 said: 10110111010111100111101110011101011010011011"""
 </pre>
 </p>
 <br>

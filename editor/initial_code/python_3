@@ -1,24 +1,26 @@
-class NewMessenger:
+class Chat:
     pass
 
-class Person1:
+class Human:
     pass
 
-class Person2:
+class Robot:
     pass
 
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
 
-    messenger = NewMessenger()
-    karl = Person1(messenger)
-    peter = Person2(messenger)
-    messenger.connect_person(karl)
-    messenger.connect_person(peter)
+    chat = Chat()
+    karl = Human("Karl")
+    bot = Robot("R2D2")
+    chat.connect_human(karl)
+    chat.connect_robot(bot)
     karl.send("Hi! What's new?")
-    peter.send("Hello. Could we speak later about it?")
-    messenger.show_dialogue() == """Person1 said: Hi! What’s new?
-Person2 said: Hello. Could we speak later about it?"""
+    bot.send("Hello. Could we speak later about it?")
+    assert chat.show_human_dialogue() == """Karl said: Hi! What’s new?
+R2D2 said: Hello, human. Could we speak later about it?"""
+    assert chat.show_robot_dialogue() == """Karl said: 101111011111011
+R2D2 said: 10110111010111100111101110011101011010011011"""
 
     print("Coding complete? Let's try tests!")

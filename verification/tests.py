@@ -32,45 +32,57 @@ def prepare_test(test="", answer=None, middle_code="", show_code=None):
 
 TESTS = {
     "1. First": [
-        prepare_test(middle_code='''messenger = NewMessenger()
-karl = Person1(messenger)
-peter = Person2(messenger)
-messenger.connect_person(karl)
-messenger.connect_person(peter)
+        prepare_test(middle_code='''chat = Chat()
+karl = Human('Karl')
+bot = Robot('R2D2')
+chat.connect_human(karl)
+chat.connect_robot(bot)
 karl.send("Hi! How are you?")
-peter.send("Hello. Could we speak later about it?")''',
-                     test="messenger.show_dialogue()",
-                     answer='''Person1 said: How are you?
-Person2 said: Hello. Could we speak later about it?''')
+bot.send("Hello, human. Could we speak later about it?")''',
+                     test="chat.show_robot_dialogue()",
+                     answer="""Karl said: 101111011111011
+R2D2 said: 10110111010111100111101110011101011010011011""")
     ],
     "2. Second": [
-        prepare_test(middle_code='''messenger = NewMessenger()
-bob = Person1(messenger)
-ann = Person2(messenger)
-messenger.connect_person(bob)
-messenger.connect_person(ann)
+        prepare_test(middle_code='''chat = Chat()
+bob = Human('Bob')
+ann = Robot('Ann-1244c')
+chat.connect_human(bob)
+chat.connect_robot(ann)
 bob.send("Hi, Ann! Is your part of work done?")
 ann.send("Hi, Bob. Sorry, I need a few more hours. Could you wait, please?")
 bob.send("Ok. But hurry up, please. It's important.")
 ann.send("Sure, thanks.")
 ''',
-                     test="messenger.show_dialogue()",
-                     answer='''Person1 said: Hi, Ann! Is your part of work done?
-Person2 said: Hi, Bob. Sorry, I need a few more hours. Could you wait, please?
-Person1 said: Ok. But hurry up, please. It's important.
-Person2 said: Sure, thanks.''')
+                     test="chat.show_human_dialogue()",
+                     answer='''Bob said: Hi, Ann! Is your part of work done?
+Ann-1244c said: Hi, Bob. Sorry, I need a few more hours. Could you wait, please?
+Bob said: Ok. But hurry up, please. It's important.
+Ann-1244c said: Sure, thanks.''')
     ],
     "3. Third": [
-        prepare_test(middle_code='''messenger = NewMessenger()
-me = Person1(messenger)
-you = Person2(messenger)
-messenger.connect_person(me)
-messenger.connect_person(you)
+        prepare_test(middle_code='''chat = Chat()
+me = Human('Xander')
+my_digital_clone = Robot('Model AX-88')
+chat.connect_human(me)
+chat.connect_robot(my_digital_clone)
 me.send("What a nice day! Do you have some plans?")
-you.send("Code. Code. Code. Nothing else matters.")''',
-                     test="messenger.show_dialogue()",
-                     answer='''Person1 said: What a nice day! Do you have some plans?
-Person2 said: Code. Code. Code. Nothing else matters.''')
+my_digital_clone.send("Code. Code. Code. Nothing else matters.")''',
+                     test="chat.show_robot_dialogue()",
+                     answer='''Xander said: 1101101101011011110110011010110101110111
+Model AX-88 said: 101011101011101011101101110110110110111''')
+    ],
+    "4. Fourth": [
+        prepare_test(middle_code='''chat = Chat()
+ai_developer = Human('Max')
+ai = Robot('Deep Thought')
+chat.connect_human(ai_developer)
+chat.connect_robot(ai)
+ai_developer.send("I need the answer to the great question of life, the universe and everything")
+ai.send("42")''',
+                     test="chat.show_human_dialogue()",
+                     answer='''Max said: I need the answer to the great question of life, the universe and everything
+Deep Thought said: 42''')
     ]
 
 }

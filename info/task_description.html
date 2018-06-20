@@ -2,8 +2,17 @@
 Modern world is full of means of communication - social networks, messengers, phone calls, SMS etc.
 But sometimes every communication channel show own problem and you think at moments like that: "I should create my own messenger - without any promblems like this one".<br>
 In this mission you have such opportunity.<br>
-Your task is to create a NewMessenger class which could help two person (Person1 and Person2) to make a conversation. This class should have method <strong>connect_person()</strong> for adding person in the dialogue and <strong>show_dialogue()</strong> to print out the dialogue as a multiline string. Every single line shold looks like:<br>
-Person1 (or Person2) said: text of the message<br>
+Your task is to create a Chat class which could help Human(name) and Robot(serial_number) to make a conversation. This class should have a few methods:<br>
+<strong>connect_human()</strong> - connect human to the chat.<br>
+<strong>connect_robot()</strong> - connect robot to the chat.<br>
+<strong>show_human_dialogue()</strong> - shows the dialogue as it looks to the human - as simple text.<br>
+<strong>show_robot_dialogue()</strong> - shows the dialogue as it looks to the robot - as the set of the 1 and 0. To simplify the task, just replace every vowel ('aeiouAEIOU') with "0", and the rest symbols (consonants and special signs like ",", "!" etc.) with "1".<br>
+Dialogue for human shoud be shown like this:<br>
+(human name) said: message text<br>
+(robot serial number): message text<br>
+For robot:<br>
+(human name) said: 11100100011<br>
+(robot serial number) said: 100011100101<br>
 Interlocutors should have a method <strong>send()</strong> for sending a messages to the dialogue.<br>
 In this mission you could use the <a href='https://en.wikipedia.org/wiki/Mediator_pattern'>Mediator</a> design pattern.
 </p>
@@ -11,15 +20,17 @@ In this mission you could use the <a href='https://en.wikipedia.org/wiki/Mediato
 <p>
 <strong>Example</strong>:
 <pre class="brush: python">
-messenger = NewMessenger()
-karl = Person1(messenger)
-peter = Person2(messenger)
-messenger.connect_person(karl)
-messenger.connect_person(peter)
+chat = Chat()
+karl = Human("Karl")
+bot = Robot("R2D2")
+chat.connect_human(karl)
+chat.connect_robot(bot)
 karl.send("Hi! What's new?")
-peter.send('Hello. Could we speak later about it?')
-messenger.show_dialogue() == '''Person1 said: Hi! What’s new?
-Person2 said: Hello. Could we speak later about it?'''
+bot.send("Hello. Could we speak later about it?")
+chat.show_human_dialogue() == """Karl said: Hi! What’s new?
+R2D2 said: Hello, human. Could we speak later about it?"""
+chat.show_robot_dialogue() == """Karl said: 101111011111011
+R2D2 said: 10110111010111100111101110011101011010011011"""
 </pre>
 </p>
 <br>
