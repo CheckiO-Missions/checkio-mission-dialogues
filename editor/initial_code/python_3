@@ -1,3 +1,5 @@
+VOWELS = "aeiouAEIOU"
+
 class Chat:
     pass
 

@@ -1,15 +1,15 @@
 init_code = """
-if not "NewMessenger" in USER_GLOBAL:
-    raise NotImplementedError("Where is 'NewMessenger'?")
-NewMessenger = USER_GLOBAL['NewMessenger']
+if not "Chat" in USER_GLOBAL:
+    raise NotImplementedError("Where is 'Chat'?")
+Chat = USER_GLOBAL['Chat']
 
-if not "Person1" in USER_GLOBAL:
-    raise NotImplementedError("Where is 'Person1'?")
-Person1 = USER_GLOBAL['Person1']
+if not "Human" in USER_GLOBAL:
+    raise NotImplementedError("Where is 'Human'?")
+Human = USER_GLOBAL['Human']
 
-if not "Person2" in USER_GLOBAL:
-    raise NotImplementedError("Where is 'Person2'?")
-Person2 = USER_GLOBAL['Person2']
+if not "Robot" in USER_GLOBAL:
+    raise NotImplementedError("Where is 'Robot'?")
+Robot = USER_GLOBAL['Robot']
 """
 
 run_test = """
