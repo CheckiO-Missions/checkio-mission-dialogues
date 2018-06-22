@@ -1,4 +1,4 @@
-VOWELS = "aeiouAEIOU"
+VOWELS = "aeiou"
 
 class Chat:
     pass
