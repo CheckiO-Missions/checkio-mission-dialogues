@@ -37,7 +37,7 @@ karl = Human('Karl')
 bot = Robot('R2D2')
 chat.connect_human(karl)
 chat.connect_robot(bot)
-karl.send("Hi! How are you?")
+karl.send("Hi! What's new?")
 bot.send("Hello, human. Could we speak later about it?")''',
                      test="chat.show_robot_dialogue()",
                      answer="""Karl said: 101111011111011
